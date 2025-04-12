@@ -17,6 +17,7 @@ import {
   useToastController,
   XStack,
   YStack,
+  AlertDialog,
 } from '@my/ui'
 import { ChevronDown, ChevronUp, X } from '@tamagui/lucide-icons'
 import { useState } from 'react'
@@ -64,17 +65,56 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
 
       <Button {...linkProps}>Link to user</Button>
 
-      <Dialog>
-        <Dialog.Trigger asChild>
-          <Button>Open Dialog</Button>
-        </Dialog.Trigger>
-        <Dialog.Portal>
-          <Dialog.Overlay />
-          <Dialog.Content>
-            <Dialog.Title>Dialog Title</Dialog.Title>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog>
+      <AlertDialog native>
+        <AlertDialog.Trigger asChild>
+          <Button>Show Alert</Button>
+        </AlertDialog.Trigger>
+
+        <AlertDialog.Portal>
+          <AlertDialog.Overlay
+            key="overlay"
+            animation="quick"
+            opacity={0.5}
+            enterStyle={{ opacity: 0 }}
+            exitStyle={{ opacity: 0 }}
+          />
+          <AlertDialog.Content
+            bordered
+            elevate
+            key="content"
+            animation={[
+              'quick',
+              {
+                opacity: {
+                  overshootClamping: true,
+                },
+              },
+            ]}
+            enterStyle={{ x: 0, y: -20, opacity: 0, scale: 0.9 }}
+            exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
+            x={0}
+            scale={1}
+            opacity={1}
+            y={0}
+          >
+            <YStack gap="$4">
+              <AlertDialog.Title>Accept</AlertDialog.Title>
+              <AlertDialog.Description>
+                By pressing yes, you accept our terms and conditions.
+              </AlertDialog.Description>
+
+              <XStack gap="$3" justify="flex-end">
+                <AlertDialog.Cancel asChild>
+                  <Button>Cancel</Button>
+                </AlertDialog.Cancel>
+                <AlertDialog.Action asChild>
+                  <Button theme="accent">Accept</Button>
+                </AlertDialog.Action>
+              </XStack>
+            </YStack>
+          </AlertDialog.Content>
+        </AlertDialog.Portal>
+      </AlertDialog>
     </YStack>
   )
 }

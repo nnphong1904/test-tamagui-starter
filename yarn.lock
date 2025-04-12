@@ -10500,7 +10500,7 @@ __metadata:
     app: "npm:0.0.0"
     babel-plugin-module-resolver: "npm:^5.0.2"
     burnt: "npm:^0.12.2"
-    expo: "npm:~52.0.42"
+    expo: "npm:~52.0.44"
     expo-constants: "npm:~17.0.8"
     expo-dev-client: "npm:~5.0.19"
     expo-font: "npm:13.0.4"
@@ -10859,7 +10859,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:~52.0.42":
+"expo@npm:~52.0.44":
   version: 52.0.44
   resolution: "expo@npm:52.0.44"
   dependencies:
